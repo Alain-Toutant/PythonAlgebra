@@ -14,6 +14,31 @@ The algorithm is very naive and will only support basic operators (+, -, *, /, \
 The term to resolve must only appear once in the formula.
 
 
+Equation Class:
+
+This is a more advanced version of the solveFor() solution designed using a class (instead of a mere function). 
+
+Initialized with an equality, can isolate any term into an assignment statement
+
+Example use:
+
+    trig = Equation("c**2 = a**2 + b**2")
+    trig.isolate("a") ==> 'a=sqrt(c**2-b**2)'
+    trig.isolate("b") ==> 'b=sqrt(c**2-a**2)'
+
+Features and limitations:
+- Can combine multiple instance of sought term in equation
+- Basic numerical operators:  + - * / **
+- Some math functions and their inverse:  log, sin, cos, tan, sqrt
+- Simple factorisation / expansion: a*(b+c) <--> a*b + a*c
+
+Limitations:
+- no resolution for multi degree polynoms (e.g. a**2 + a)
+- Not aware of "well known" identities
+- Supports integers and floats (no imaginary)
+- No +/- variants when applying square root (uses positive only)
+
+
 # SmartFormula.py
 Numeric conversion class to find the missing term of an equation based conversion definition.
 
